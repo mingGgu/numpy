@@ -117,9 +117,14 @@ avgBio = np.average(class1['bio'])
 
 # 연습)1반학생들의 성적을 막대그래프로 나타내 봅니다.
 
-rc('font', family=font_manager.FontProperties(fname='C:/WINDOWS/Fonts/NanumBarunGothicUltraLight.ttf').get_name())
-plt.bar(range(len(class1['name'])), class1.loc[:, 'kor'], 0.6, color='pink')
-plt.title('1반학생의 과목별 점수')
-plt.xticks(range(len(class1['name'])), class1['name'])
-
+# rc('font', family=font_manager.FontProperties(fname='C:/WINDOWS/Fonts/NanumBarunGothicUltraLight.ttf').get_name())
+# plt.bar(range(len(class_1.index)), class_1['kor'], 0.6, color='pink')
+# plt.title('1반학생의 과목별 점수')
+# plt.xticks(range(len(class_1.index)), class_1.index)
 # plt.show()
+#
+# class_1.plot()
+class_1.plot(kind='hexbin')
+plt.show()
+
+# help(pd.DataFrame.plot)
