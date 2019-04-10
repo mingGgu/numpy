@@ -3,10 +3,48 @@ import pandas as pd
 import xlrd
 
 df = pd.read_excel('../Data/MLB World Series Champions_ 1903-2016.xlsx')
-win_count = df.pivot_table(values=)
 
+# 최다챔피언한 5위안에 드는 팀을 출력, 우승한 횟수가 동일한 팀이 여러팀인 경우 모두 출력해 주세요
+win_count = df.pivot_table(values='Wins',index='Champion',aggfunc='count')
+sorted_win_count = win_count.sort_values(by='Wins',ascending=False)
+print(sorted_win_count)
 
+# 우승한 횟수를 중복이 되지 않도록 만듭니다.  =>  r
 
+r = sorted_win_count['Wins'].unique()
+print(r)
+'''
+[27 11  7  5  4  3  2  1]
+'''
+
+# 그 중에 5번째 값을 뽑아온다.(top5를 뽑아야하니까)     =>  min
+
+min = r[4]
+print(min)
+'''
+4
+'''
+
+# sorted_win_count의 Wins가 그 5번째 값 이상인 값을 뽑는다.    =>  Wins가 min이상 되는 데이터를 출력
+top_5 = sorted_win_count[sorted_win_count['Wins'] >= min]
+print(top_5)
+print(len(top_5))
+'''
+                        Wins
+Champion                    
+New York Yankees          27
+St. Louis Cardinals       11
+Boston Red Sox             7
+Los Angeles Dodgers        5
+Cincinatti Reds            5
+New York Giants            5
+Philadelphia Athletics     5
+Detroit Tigers             4
+Oakland Athletics          4
+Pittsburgh Pirates         4
+
+10
+'''
 
 
 
