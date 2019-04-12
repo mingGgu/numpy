@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h2>대출 가능 한가유</h2>
+            <hr>
+            <form action="onehote" method="post">
+                나이 : <input type="number" name="age"><br>
+                직업 분류 :
+                <select name="workclass">
+                    {% for work in w %}
+                    <option value="{{work}}">{{work}}</option>
+                    {% endfor %}
+                </select><br>
+                학력 :
+                <select name="education">
+                    {% for edu in e %}
+                    <option value="{{edu}}">{{edu}}</option>
+                    {% endfor %}
+                </select><br>
+                성별 :
+                <select name="sex">
+                    {% for sex in s %}
+                    <option value="{{sex}}">{{sex}}</option>
+                    {% endfor %}
+                </select><br>
+                인종 :
+                <select name="race">
+                    {% for race in ra %}
+                    <option value="{{race}}">{{race}}</option>
+                    {% endfor %}
+                </select><br>
+                주노동시간: <input type="number" name="hoursperweek"><br>
+                 직업 :
+                <select name="occupation">
+                    {% for occu in o %}
+                    <option value="{{occu}}">{{occu}}</option>
+                    {% endfor %}
+                </select><br>
+                <input type="submit" value="제출">
+            </form>
+            <hr>
+            <h3>결과</h3>
+            {{result}}
+        </div>
+    </div>
+</body>
+</html>
